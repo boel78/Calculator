@@ -1,0 +1,17 @@
+.helaSidan{
+    display: flex;
+    justify-content: center;
+}
+
+.calculator{
+    width: 200px;
+}
+
+#display{
+    width: 100%;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
