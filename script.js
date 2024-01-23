@@ -2,6 +2,7 @@ var firstNumber;
 var operator;
 var secondNumber;
 let displayValue = "";
+let selectedOp = "";
 
 const btns = document.querySelectorAll('button');
 
@@ -11,27 +12,54 @@ btns.forEach(btn => {
         console.log(btnValue);
         if(Number.isInteger(parseInt(btnValue))){
             displayValue += btnValue;
-            document.querySelector("#display").textContent = displayValue;
+            update()
+        }
+        else if(btnValue == "add"){
+            console.log("addition")
+            setFirstValue(displayValue);
+            displayValue = "";
+            document.querySelector("#display").textContent = "";
+            selectedOp = "+";
+        }
+        else if(btnValue == "equals"){
+            setSecondValue(displayValue);
+            operate(firstNumber, secondNumber, selectedOp)
+        }
+        else if(btnValue == "clear"){
+            displayValue = "";
+            firstNumber = "";
+            secondNumber = "";
+            selectedOp = "";
+            update()
         }
     });
 });
 
 
-function operate(first, second, op){
+function operate(firs, secon, op){
+    let first = parseInt(firs);
+    let second = parseInt(secon)
+    let sum = 0;
+    console.log(op)
     switch(op){
         case "+":
-            add(first, second);
+            console.log("case addiion")
+            sum =add(first, second);
         break;
         case "-":
-            subtract(first, second);
+            sum = subtract(first, second);
         break;
         case "*":
-            multiply(first, second);
+            sum = multiply(first, second);
         break;
         case "/":
-            divide(first, second);
+            sum = divide(first, second);
         break;
+        
     }
+    console.log(sum)
+    displayValue = sum;
+    update()
 }
 
 function add(x, y){
@@ -48,4 +76,16 @@ function divide(x, y){
 
 function multiply(x, y){
     return x*y;
+}
+
+function setFirstValue(number){
+    firstNumber = number;
+}
+
+function setSecondValue(number){
+    secondNumber = number
+}
+
+function update(){
+    document.querySelector("#display").textContent = displayValue;
 }
