@@ -4,14 +4,55 @@
 }
 
 .calculator{
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    background-color: lightcoral;
+    border: 3px solid black;
+    gap: 20px;
+    border-radius: 50px;
+}
+
+.displayContainer{
+    margin-top: 2%;
+    width: 90%;
+    height: 20%;
+    background-color: black;
+    border-radius: 25px;
 }
 
 #display{
+    height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 45px;
 }
 
 .buttonContainer{
+    padding-left: 5%;
+    padding-right: 5%;
     display: flex;
     flex-wrap: wrap;
+    height: 60%;
+}
+
+
+
+button{
+    width: 25%;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+#equals{
+    background-color: orange;
+}
+
+#decimal, #add, #subtract, #multiply, #divide{
+    background-color: lightblue;
 }
